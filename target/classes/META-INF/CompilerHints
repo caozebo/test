@@ -1,0 +1,11 @@
+dontinline,*.*_all_jmhStub
+dontinline,*.*_avgt_jmhStub
+dontinline,*.*_sample_jmhStub
+dontinline,*.*_ss_jmhStub
+dontinline,*.*_thrpt_jmhStub
+inline,jmhTest/JmhTest.stringAdd
+inline,jmhTest/JmhTest.stringBuilderAppend
+inline,jmhTest/MapBenchmark.setup
+inline,jmhTest/MapBenchmark.testRead
+inline,jmhTest/MapBenchmark.testRemove
+inline,jmhTest/MapBenchmark.testWrite
