@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.userapi.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.example.userapi.entity.User">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="email" column="email"/>
+    </resultMap>
+
+    <insert id="insertUser" parameterType="com.example.userapi.entity.User" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO user (name, email)
+        VALUES (#{name}, #{email})
+    </insert>
+
+    <select id="selectUserById" parameterType="long" resultMap="UserResultMap">
+        SELECT id, name, email FROM user WHERE id = #{id}
+    </select>
+
+    <select id="selectAllUsers" resultMap="UserResultMap">
+        SELECT id, name, email FROM user
+    </select>
+
+    <update id="updateUser" parameterType="com.example.userapi.entity.User">
+        UPDATE user
+        SET name = #{name},
+            email = #{email}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="long">
+        DELETE FROM user WHERE id = #{id}
+    </delete>
+
+</mapper>
